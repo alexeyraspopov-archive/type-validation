@@ -6,7 +6,7 @@ Schema validation
 
  * via [npm](https://npmjs.org) `npm install alexeyraspopov/schema`
  * via [component](http://component.io) `component install alexeyraspopov/schema`
- * via [bower](http://bower.io) `bower install alexeyraspopov/schema`
+ * via [bower](http://bower.io) `bower install schema`
 
 ## API
 

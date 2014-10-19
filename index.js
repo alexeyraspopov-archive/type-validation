@@ -1,25 +1,25 @@
-function comparator(type){
-	return (typeof type === 'function' ? typeAssert : schema)(type);
-}
+function validate(schema, value){
+	if(schema instanceof Function){
+		return Object(value) instanceof schema;
+	}
 
-function typeAssert(type){
-	return function(item){
-		return type(item) === item;
-	};
-}
+	if(schema instanceof Array){
+		return Array.isArray(value) && value.every(validation(schema[0]));
+	}
 
-function schema(map){
-	return function(target){
-		return Object.keys(map).every(function(key){
-			var type = map[key];
-
-			if(Array.isArray(type)){
-				return Array.isArray(target[key]) && target[key].every(comparator(type[0]));
-			}
-
-			return target.hasOwnProperty(key) && comparator(type)(target[key]);
+	if(schema instanceof Object){
+		return Object.keys(value).every(function(key){
+			return validate(schema[key], value[key]);
 		});
-	};
+	}
 }
 
-module.exports = schema;
+function validation(schema, value){
+	if(arguments.length < 2){
+		return validate.bind(null, schema);
+	}
+
+	return validate(schema, value);
+};
+
+module.exports = validation;

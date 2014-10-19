@@ -1,27 +1,24 @@
-# Schema
+# type-validation
 
-Schema validation
+Check types.
 
 ## Install
 
- * via [npm](https://npmjs.org) `npm install alexeyraspopov/schema`
- * via [component](http://component.io) `component install alexeyraspopov/schema`
- * via [bower](http://bower.io) `bower install schema`
+ * via [npm](https://npmjs.org) `npm install alexeyraspopov/type-validation`
+ * via [component](http://component.io) `component install alexeyraspopov/type-validation`
+ * via [bower](http://bower.io) `bower install type-validation`
 
 ## API
 
-	schema(map)
+	check(type/map, value);
 
 ## Usage
 
-	var user = schema({
-			name: String,
-			age: Number
-		});
+	var validate = require('type-validation');
 
-	user({ name: 'Alex', age: 21 }); // true
-
-	user({ name: false, age: 45 }); // false
+	validate(String, 'Ann');
+	validate([Number], [1, 2, 3, 4, 5]);
+	validate({ name: String, age: Number, friends: [String] }, ...);
 
 ## License
 

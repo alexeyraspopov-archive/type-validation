@@ -1,8 +1,12 @@
 {
-  "name": "schema",
+  "name": "type-validation",
   "version": "0.1.0",
-  "description": "Schema validation",
+  "description": "Check types",
   "license": "MIT",
   "main": "index.js",
-  "author": "Alexey Raspopov (https://github.com/alexeyraspopov)"
+  "author": "Alexey Raspopov (https://github.com/alexeyraspopov)",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/alexeyraspopov/type-validation.git"
+  }
 }
